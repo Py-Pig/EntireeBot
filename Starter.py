@@ -16,23 +16,23 @@ print(f"""
 
 prefix = f"[=] "
 
+token = input(f"{prefix}Token: ")
+channeled = int(input(f"{prefix}Channel Id: "))
+delay = float(input(f"{prefix}Delay (float value): "))
+startValue = int(input(f"{prefix}Start value: "))
+endValue = int(input(f"{prefix}End value: "))
+
 
 def start():
-    token = input(f"{prefix}Token: ")
-    headers = {"user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11", "content-type": "application/json", "Authorization": token}
+    headers = {
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11",
+        "content-type": "application/json", "Authorization": token}
     if requests.get('https://discord.com/api/v9/users/@me', headers=headers).status_code != 200:
         print(f"{prefix}Invalid token, exit.")
-        time.sleep(5)
         sys.exit()
         return
 
-    channeled = int(input(f"{prefix}Channel Id: "))
-    delay = float(input(f"{prefix}Delay (float value): "))
-    startValue = int(input(f"{prefix}Start value: "))
-    endValue = int(input(f"{prefix}End value: "))
-
     i = startValue
-
     while i < endValue:
         time.sleep(delay)
         message = requests.post(f"https://discord.com/api/v8/channels/{channeled}/messages", headers=headers,
