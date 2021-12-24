@@ -39,7 +39,7 @@ def start():
                                 json={"content": str(f"{i}")})
         if message.status_code == 200:
             i = i + 1
-            print(f"{prefix}Message sended = [i=[{i}]] [{message.status_code}]")
+            print(f"{prefix}Message sent = [i=[{i}]] [{message.status_code}]")
         else:
             print(f"{prefix}Failed to send message = [i=[{i}]] [{message.status_code}]")
             time.sleep(1)
