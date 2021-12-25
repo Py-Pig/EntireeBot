@@ -1,7 +1,8 @@
 {
-  "Token": "your token",
-  "ChannelId": 922246290584515127,
-  "Delay": 3,
-  "StartValue": 0,
-  "EndValue": 100
+  "Token": "token",
+  "ChannelId": 923914053573816321,
+  "Delay": 15,
+  "Random": true,
+  "StartValue": 200000,
+  "EndValue": 900000
 }
